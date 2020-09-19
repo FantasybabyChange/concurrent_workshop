@@ -1,7 +1,7 @@
 package com.fantasybaby.test.pool;
 
-import com.fantasybaby.basic.threadpool.forkjoin.ExecutorServiceCalculator;
-import com.fantasybaby.basic.threadpool.forkjoin.ForkJoinFeedBack;
+import com.fantasybaby.concurrent.threadpool.forkjoin.ExecutorServiceCalculator;
+import com.fantasybaby.concurrent.threadpool.forkjoin.ForkJoinFeedBack;
 import org.junit.Test;
 
 import java.util.stream.LongStream;

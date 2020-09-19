@@ -1,6 +1,6 @@
 package com.fantasybaby.test.pool;
 
-import com.fantasybaby.basic.threadpool.ThreadDiscardPolicy;
+import com.fantasybaby.concurrent.threadpool.ThreadDiscardPolicy;
 import org.junit.Before;
 import org.junit.Test;
 

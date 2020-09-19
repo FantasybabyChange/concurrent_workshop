@@ -1,6 +1,6 @@
 package com.fantasybaby.test.pool;
 
-import com.fantasybaby.basic.j8new.CompletableFutureDemo;
+import com.fantasybaby.concurrent.j8new.CompletableFutureDemo;
 import org.junit.Before;
 import org.junit.Test;
 
