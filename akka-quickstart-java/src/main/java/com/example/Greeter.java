@@ -7,6 +7,11 @@ import akka.actor.typed.javadsl.*;
 import java.util.Objects;
 
 // #greeter
+
+/**
+ * Receives commands to Greet someone
+ * and responds with a Greeted to confirm the greeting has taken place
+ */
 public class Greeter extends AbstractBehavior<Greeter.Greet> {
 
   public static final class Greet {
@@ -66,6 +71,11 @@ public class Greeter extends AbstractBehavior<Greeter.Greet> {
     return newReceiveBuilder().onMessage(Greet.class, this::onGreet).build();
   }
 
+  /**
+   * will receive message when
+   * @param command
+   * @return
+   */
   private Behavior<Greet> onGreet(Greet command) {
     getContext().getLog().info("Hello {}!", command.whom);
     //#greeter-send-message

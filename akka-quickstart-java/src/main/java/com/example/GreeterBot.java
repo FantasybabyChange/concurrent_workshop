@@ -1,8 +1,15 @@
 package com.example;
 
 import akka.actor.typed.Behavior;
-import akka.actor.typed.javadsl.*;
+import akka.actor.typed.javadsl.AbstractBehavior;
+import akka.actor.typed.javadsl.ActorContext;
+import akka.actor.typed.javadsl.Behaviors;
+import akka.actor.typed.javadsl.Receive;
 
+/**
+ * receives the reply from the Greeter and sends a number of additional greeting messages and collect the replies
+ * until a given max number of messages have been reached.
+ */
 public class GreeterBot extends AbstractBehavior<Greeter.Greeted> {
 
     public static Behavior<Greeter.Greeted> create(int max) {
