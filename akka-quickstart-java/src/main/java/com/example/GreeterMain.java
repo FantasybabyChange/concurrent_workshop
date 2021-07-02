@@ -5,7 +5,9 @@ import akka.actor.typed.Behavior;
 import akka.actor.typed.javadsl.*;
 
 public class GreeterMain extends AbstractBehavior<GreeterMain.SayHello> {
-
+    /**
+     * command to the GreeterMain to start the greeting process
+     */
     public static class SayHello {
         public final String name;
 
