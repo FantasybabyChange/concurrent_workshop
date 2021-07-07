@@ -74,20 +74,32 @@ public class Greeter extends AbstractBehavior<Greeter.Greet> {
         super(context);
     }
 
+    /**
+     * The behavior of the Actor is defined as the Greeter AbstractBehavior
+     * with the help of the newReceiveBuilder behavior factory.
+     * @return
+     */
     @Override
     public Receive<Greet> createReceive() {
         return newReceiveBuilder().onMessage(Greet.class, this::onGreet).build();
     }
 
     /**
-     * will receive message when
+     * processing the next message then results in a new behavior that can potentially be different from this one.
+     * The state can be updated by modifying the current instance as it is mutable. In this case we don’t need to update any state,
+     * so we return this without any field updates, which means the next behavior is “the same as the current one
      *
+     * The type of the messages handled by this behavior is declared to be of class Greet. Typically, an actor handles
+     * more than one specific message type and then there is one common interface that all messages that the actor can handle implements
      * @param command
      * @return
      */
     private Behavior<Greet> onGreet(Greet command) {
         getContext().getLog().info("Hello {}!", command.whom);
         //#greeter-send-message
+        /**
+         * is an asynchronous operation that doesn’t block the caller’s thread.
+         */
         command.replyTo.tell(new Greeted(command.whom, getContext().getSelf()));
         //#greeter-send-message
         return this;
