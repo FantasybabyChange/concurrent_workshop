@@ -1,68 +1,69 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'maven'
-group = 'com.fantasybaby'
-version = '1.0-SNAPSHOT'
-
-description = "concurrent-test"
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-[compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
-
-
-repositories {
-    mavenLocal()
-    maven{
-        url "http://maven.aliyun.com/nexus/content/groups/public"
-    }
-    jcenter()
-}
-ext{
-    junitVersion = '4.12'
-    springVersion ='5.0.4.RELEASE'
-    lombokVersion ='1.16.16'
-    logbackVersion = '1.1.1'
-    akkaVersion='2.6.0'
-}
-dependencies {
-    // https://mvnrepository.com/artifact/org.multiverse/multiverse-core
-    compile group: 'org.multiverse', name: 'multiverse-core', version: '0.7.0'
-    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.10'
-    compile group: 'ch.qos.logback', name: 'logback-core', version:logbackVersion
-    compile group: 'ch.qos.logback', name: 'logback-classic', version:logbackVersion
-    compile group: 'com.google.guava', name: 'guava', version:'24.0-jre'
-    compile   "org.projectlombok:lombok:$lombokVersion"
-    compile 'com.typesafe.akka:akka-actor-typed_2.13:2.6.0'
-    testCompile 'com.typesafe.akka:akka-actor-testkit-typed_2.13:2.6.0'
-    implementation 'com.lmax:disruptor:3.4.2'
-    testCompile   "org.projectlombok:lombok:$lombokVersion"
-    testCompile group: 'junit', name: 'junit', version:'4.11'
-}
-
-def createFolder ={
-    path ->
-        def file = new File(path)
-        if(!file.exists()){
-            file.mkdirs()
-        }
-}
-
-task buildNormalProject(group:'build') {
-    def paths =['src/main/java','src/main/resources','src/test/java','src/test/resource']
-    doLast{
-        paths.forEach(createFolder)
-    }
-}
-
-sourceSets {
-    main{
-        java{
-            srcDir file('src/main/java')
-        }
-        resources {
-            srcDir file('src/main/resources')
-        }
-    }
-
-}
+//apply plugin: 'java'
+//apply plugin: 'idea'
+//apply plugin: 'maven'
+//group = 'com.fantasybaby'
+//version = '1.0-SNAPSHOT'
+//
+//description = "concurrent-test"
+//
+//sourceCompatibility = 1.8
+//targetCompatibility = 1.8
+//[compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
+//
+//
+//repositories {
+//    mavenLocal()
+//    maven{
+//        url "http://maven.aliyun.com/nexus/content/groups/public"
+//    }
+//    jcenter()
+//}
+//ext{
+//    junitVersion = '4.12'
+//    springVersion ='5.0.4.RELEASE'
+//    lombokVersion ='1.16.16'
+//    logbackVersion = '1.1.1'
+//    akkaVersion='2.6.0'
+//}
+//dependencies {
+//    // https://mvnrepository.com/artifact/org.multiverse/multiverse-core
+//    compile group: 'org.multiverse', name: 'multiverse-core', version: '0.7.0'
+//    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.10'
+//    compile group: 'ch.qos.logback', name: 'logback-core', version:logbackVersion
+//    compile group: 'ch.qos.logback', name: 'logback-classic', version:logbackVersion
+//    compile group: 'com.google.guava', name: 'guava', version:'24.0-jre'
+//    annotationProcessor   "org.projectlombok:lombok:$lombokVersion"
+//    compileOnly   "org.projectlombok:lombok:$lombokVersion"
+//    compile 'com.typesafe.akka:akka-actor-typed_2.13:2.6.0'
+//    testCompile 'com.typesafe.akka:akka-actor-testkit-typed_2.13:2.6.0'
+//    implementation 'com.lmax:disruptor:3.4.2'
+//    testCompile   "org.projectlombok:lombok:$lombokVersion"
+//    testCompile group: 'junit', name: 'junit', version:'4.11'
+//}
+//
+//def createFolder ={
+//    path ->
+//        def file = new File(path)
+//        if(!file.exists()){
+//            file.mkdirs()
+//        }
+//}
+//
+//task buildNormalProject(group:'build') {
+//    def paths =['src/main/java','src/main/resources','src/test/java','src/test/resource']
+//    doLast{
+//        paths.forEach(createFolder)
+//    }
+//}
+//
+//sourceSets {
+//    main{
+//        java{
+//            srcDir file('src/main/java')
+//        }
+//        resources {
+//            srcDir file('src/main/resources')
+//        }
+//    }
+//
+//}
